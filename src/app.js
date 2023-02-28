@@ -6,9 +6,9 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  let who = ["the dog", "my granma", "his turtle", "my bird"];
-  let what = ["eat", "pissed", "crushed", "broked"];
-  let when = [
+  const who = ["the dog", "my granma", "his turtle", "my bird"];
+  const what = ["eat", "pissed", "crushed", "broked"];
+  const when = [
     "before the class",
     "right in time",
     "when I finished",
@@ -16,7 +16,7 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  let perfectExcuse = document.querySelector("#excuse");
+  const perfectExcuse = document.querySelector("#miBoton");
   perfectExcuse.textContent =
     who[Math.floor(Math.random() * 3)] +
     " " +
@@ -24,5 +24,18 @@ window.onload = function() {
     " " +
     when[Math.floor(Math.random() * 4)];
 
-  console.log("Hello Rigo from the console!");
+  // console.log("Hello Rigo from the console!");
+
+  const boton = document.getElementById("miBoton");
+
+  boton.addEventListener("click", function() {
+    const indexWho = Math.floor(Math.random() * who.length);
+    const indexWhat = Math.floor(Math.random() * what.length);
+    const indexWhen = Math.floor(Math.random() * when.length);
+
+    const excusaAleatoria =
+      who[indexWho] + " " + what[indexWhat] + " " + when[indexWhen];
+
+    boton.innerText = excusaAleatoria;
+  });
 };
